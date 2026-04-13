@@ -53,8 +53,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.WebpageHelper;
+import uno.skkk.nothingram.NekoConfig;
+import uno.skkk.nothingram.helpers.WebpageHelper;
 
 public class Browser {
 

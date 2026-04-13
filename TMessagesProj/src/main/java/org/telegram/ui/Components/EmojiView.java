@@ -161,7 +161,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.NekoConfig;
+import uno.skkk.nothingram.NekoConfig;
 
 import me.vkryl.android.animator.BoolAnimator;
 

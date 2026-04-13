@@ -53,9 +53,9 @@ import java.util.Objects;
 import java.util.Set;
 
 import app.nekogram.translator.Http429Exception;
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.MessageHelper;
-import tw.nekomimi.nekogram.translator.Translator;
+import uno.skkk.nothingram.NekoConfig;
+import uno.skkk.nothingram.helpers.MessageHelper;
+import uno.skkk.nothingram.translator.Translator;
 
 public class TranslateController extends BaseController {
 
@@ -96,7 +96,7 @@ public class TranslateController extends BaseController {
     }
 
     public boolean isFeatureAvailable() {
-        return NekoConfig.autoTranslate && NekoConfig.transType != NekoConfig.TRANS_TYPE_EXTERNAL;
+        return NekoConfig.autoTranslate && NekoConfig.transType != NekoConfig.TRANS_TYPE_EXTERNAL && NekoConfig.transType != NekoConfig.TRANS_TYPE_SERVICE;
     }
 
     public boolean isFeatureAvailable(long dialogId) {

@@ -66,8 +66,8 @@ import org.telegram.ui.bots.BotWebViewAttachedSheet;
 
 import java.util.ArrayList;
 
-import tw.nekomimi.nekogram.helpers.MessageHelper;
-import tw.nekomimi.nekogram.helpers.UserHelper;
+import uno.skkk.nothingram.helpers.MessageHelper;
+import uno.skkk.nothingram.helpers.UserHelper;
 
 public abstract class BaseFragment {
 

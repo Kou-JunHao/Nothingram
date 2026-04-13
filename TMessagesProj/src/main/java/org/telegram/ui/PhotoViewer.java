@@ -328,13 +328,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.forward.ForwardItem;
-import tw.nekomimi.nekogram.helpers.LensHelper;
-import tw.nekomimi.nekogram.helpers.MessageHelper;
-import tw.nekomimi.nekogram.helpers.QrHelper;
-import tw.nekomimi.nekogram.streaming.MediaStreamingProvider;
-import tw.nekomimi.nekogram.translator.Translator;
+import uno.skkk.nothingram.NekoConfig;
+import uno.skkk.nothingram.forward.ForwardItem;
+import uno.skkk.nothingram.helpers.LensHelper;
+import uno.skkk.nothingram.helpers.MessageHelper;
+import uno.skkk.nothingram.helpers.QrHelper;
+import uno.skkk.nothingram.streaming.MediaStreamingProvider;
+import uno.skkk.nothingram.translator.Translator;
 import me.vkryl.core.reference.ReferenceList;
 
 @SuppressLint("WrongConstant")

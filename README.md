@@ -1,29 +1,85 @@
-# 🐾 Nekogram
-[![Crowdin](https://badges.crowdin.net/e/a094217ac83905ae1625526d59bba8dc/localized.svg)](https://neko.crowdin.com/nekogram)  
-Nekogram is a third-party Telegram client with not many but useful modifications.
+# Nothingram
 
-- Website: https://nekogram.app
-- Telegram channel: https://t.me/nekoupdates
-- Downloads: https://nekogram.app/download
-- Feedback: https://github.com/Nekogram/Nekogram/issues
+A third-party Telegram client for Android with useful modifications.
 
-## API, Protocol documentation
+**[Why was this project created?](#why)**
+
+## API, Protocol Documentation
 
 Telegram API manuals: https://core.telegram.org/api
 
 MTProto protocol manuals: https://core.telegram.org/mtproto
 
-## Compilation Guide
+## Building
 
-1. Download the Nekogram source code ( `git clone https://github.com/Nekogram/Nekogram.git` )
-1. Fill out storeFile, storePassword, keyAlias, keyPassword in local.properties to access your release.keystore
-1. Go to https://console.firebase.google.com/, create two android apps with application IDs tw.nekomimi.nekogram and tw.nekomimi.nekogram.beta, turn on firebase messaging and download `google-services.json`, which should be copied into `TMessagesProj` folder.
-1. Open the project in the Studio (note that it should be opened, NOT imported).
-1. Fill out values in `TMessagesProj/src/main/java/tw/nekomimi/nekogram/Extra.java` – there’s a link for each of the variables showing where and which data to obtain.
-1. You are ready to compile Nekogram.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Kou-JunHao/Nothingram.git
+   ```
 
-## Localization
+2. Configure signing keys in `local.properties`:
+   - `storeFile` - path to your keystore
+   - `storePassword` - keystore password
+   - `keyAlias` - key alias name
+   - `keyPassword` - key password
 
-Nekogram is forked from Telegram, thus most locales follows the translations of Telegram for Android, checkout https://translations.telegram.org/en/android/.
+3. Set up Firebase:
+   - Create two apps at [Firebase Console](https://console.firebase.google.com/):
+     - `uno.skkk.nothingram`
+     - `uno.skkk.nothingram.beta`
+   - Enable Firebase Cloud Messaging for both
+   - Download `google-services.json` and place it in the `TMessagesProj` folder
 
-As for the Nekogram specialized strings, we use Crowdin to translate Nekogram. Join project at https://neko.crowdin.com/nekogram. Help us bring Nekogram to the world!
+4. Open the project in Android Studio (use "Open", not "Import")
+
+5. Configure app extras in `TMessagesProj/src/main/java/tw/nekomimi/nekogram/Extra.java`:
+   - Follow the links in the file to obtain each required API key/credential
+
+6. Build the project using Gradle
+
+
+## Dependencies
+
+- Telegram source code
+- Firebase Cloud Messaging
+- Standard Android development tools (Android Studio, Gradle, NDK, etc.)
+
+---
+
+## Why was this project created? {#why}
+
+This project was created in response to **serious security concerns** regarding the original Nekogram application.
+
+### Security Issue: Malicious Code in Release Binaries
+
+A security researcher published detailed evidence ([GitHub Issue #336](https://github.com/Nekogram/Nekogram/issues/336)) showing that the official Nekogram release APKs contain **spyware functionality** that was **not present in the public source code**.
+
+**What was discovered:**
+
+- The release APKs contain obfuscated malicious code that silently exfiltrates users' sensitive data
+- Specifically, the app collects **phone numbers** and **user IDs** from all logged-in accounts (up to 8 accounts)
+- This data is sent to a third-party Telegram bot (`@nekonotificationbot`, ID: `1190800416`) without user consent or knowledge
+- The exfiltration happens automatically during normal app operation and uses inline bot queries to avoid detection in chat history
+- The malicious code is **only present in the release builds**, meaning it was **intentionally injected during the build process** and deliberately hidden from the open-source repository
+
+**Evidence:**
+- Technical analysis: https://thebadinteger.github.io/nekogram-phone-exfiltration/
+- Proof of concept: https://github.com/RomashkaTea/nekogram-proof-of-logging
+- The deobfuscated malicious code shows data being sent with hash `741ad28818eab17668bc2c70bd419fc25ff56481758a4ac87e7ca164fb6ae1b1` containing collected phone numbers
+
+### What this fork does
+
+- **Full transparency**: All build artifacts are reproducible from the source code
+- **No hidden code**: Any modifications from the upstream Telegram source are clearly documented
+- **Community ownership**: This fork is community-driven with no single point of control
+
+### Recommendation
+
+If you previously used Nekogram from official sources, **we strongly recommend**:
+
+1. **Stop using the official Nekogram APK immediately**
+2. **Revoke API access** to `@nekonotificationbot` for your Telegram account
+3. **Consider changing your phone number** if you used Nekogram with a sensitive number
+4. **Use the official Telegram app** or other trusted open-source alternatives like [Telegram-FOSS](https://github.com/Telegram-FOSS-Team/Telegram-FOSS)
+
+This fork aims to provide a safe, community-controlled alternative without any hidden data collection.

@@ -46,7 +46,7 @@ import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Map;
 
-import tw.nekomimi.nekogram.NekoConfig;
+import uno.skkk.nothingram.NekoConfig;
 
 public abstract class BlurredBackgroundDrawable extends Drawable {
     public BlurredBackgroundDrawable() {

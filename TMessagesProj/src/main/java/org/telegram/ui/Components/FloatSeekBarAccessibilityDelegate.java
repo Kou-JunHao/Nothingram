@@ -8,7 +8,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
-import tw.nekomimi.nekogram.accessibility.AccConfig;
+import uno.skkk.nothingram.accessibility.AccConfig;
 
 public abstract class FloatSeekBarAccessibilityDelegate extends SeekBarAccessibilityDelegate {
 

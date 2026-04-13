@@ -6,18 +6,20 @@ plugins {
     id 'io.sentry.android.gradle'
 }
 
+def sentryUploadEnabled = project.rootProject.file('sentry.properties').exists()
+
 dependencies {
     implementation project(':TMessagesProj')
 }
 
 sentry {
-    uploadNativeSymbols = true
-    includeSourceContext = true
+    uploadNativeSymbols = sentryUploadEnabled
+    includeSourceContext = sentryUploadEnabled
     additionalSourceDirsForSourceContext = [ '../TMessagesProj/src/main/java' ]
     autoInstallation {
         enabled = false
     }
-    ignoredBuildTypes = ["debug"]
+    ignoredBuildTypes = sentryUploadEnabled ? ["debug"] : ["debug", "release"]
 }
 
 android {

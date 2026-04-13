@@ -25,7 +25,7 @@ import org.telegram.ui.IUpdateLayout;
 
 import java.io.File;
 
-import tw.nekomimi.nekogram.helpers.ApkInstaller;
+import uno.skkk.nothingram.helpers.ApkInstaller;
 
 public class UpdateLayout extends IUpdateLayout {
 

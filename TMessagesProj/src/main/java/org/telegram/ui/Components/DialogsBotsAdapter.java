@@ -39,7 +39,7 @@ import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tw.nekomimi.nekogram.Extra;
+import uno.skkk.nothingram.Extra;
 
 public class DialogsBotsAdapter extends UniversalAdapter {
 
